@@ -15,6 +15,6 @@ public interface IUser {
     void setAccessData(Set<? extends IAccessData> accessData);
     IInstitution getEducationalInstitution();
     List<KeyValue> getKeyValueList();
-    List<Persona> getPersonas();
+    List<String> getPersonas();
 
 }

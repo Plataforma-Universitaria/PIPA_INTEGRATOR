@@ -13,5 +13,10 @@ public interface IBaseInstitutionProvider {
     List<KeyValue> refreshUserAccessData(List<KeyValue> accessData);
     IUserData getUserData() throws IntentNotSupportedException, InstitutionComunicationException;
     List<String> getAllServiceProvider();
+    List<String> getPersonas();
+    String getInstitutionName();
+    String getSalutationPhrase();
+    String getPasswordFieldName();
+    String getUsernameFieldName();
 
 }

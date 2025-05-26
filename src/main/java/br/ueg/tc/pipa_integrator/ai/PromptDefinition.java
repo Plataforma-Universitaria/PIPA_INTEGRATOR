@@ -40,7 +40,10 @@ public enum PromptDefinition {
             """
     ), TREAT_INTENT("Você é especialista em comunicação humana," +
             " baseado nisso elabore uma frase de resposta humanizada apenas a resposta mesmo, com no máximo 100 palavras," +
-            " mas preze pelo mais curto possível, Ex: para a resposta ´´Matemática;07:15;11:30´´ deve sair algo como ''No dia tal você tem ala de matemática das 07:15 às 11:30 '' " +
+            " mas preze pelo mais curto possível, Ex: para a resposta ´´Matemática;07:15;11:30´´" +
+            " deve sair algo como ''Na quarta você tem aula de matemática das 07:15 às 11:30 ''" +
+            " caso não haja nenhuma," +
+            " diga que o horário não foi encontrado e peça pra que a pessoa seja mais específica." +
             "para a seguinte informação: "),
     FREE_ACCESS("""
             Como especialista em correspondência de intenções e serviços, considere:
