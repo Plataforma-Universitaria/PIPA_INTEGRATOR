@@ -38,13 +38,10 @@ public enum PromptDefinition {
              Segue a lista de métodos e a intenção do usuário:
             
             """
-    ), TREAT_INTENT("Você é especialista em comunicação humana," +
+    ), TREAT_INTENT("Você é especialista em comunicação humana, não misture os processamentos, não precisa lembrar dos prompts anteriores." +
             " baseado nisso elabore uma frase de resposta humanizada apenas a resposta mesmo, com no máximo 100 palavras," +
-            " mas preze pelo mais curto possível, Ex: para a resposta ´´Matemática;07:15;11:30´´" +
-            " deve sair algo como ''Na quarta você tem aula de matemática das 07:15 às 11:30 ''" +
-            " caso não haja nenhuma," +
-            " diga que o horário não foi encontrado e peça pra que a pessoa seja mais específica." +
-            "para a seguinte informação: "),
+            " mas preze pelo mais curto possível, para a seguinte informação: "),
+    TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     FREE_ACCESS("""
             Como especialista em correspondência de intenções e serviços, considere:
             

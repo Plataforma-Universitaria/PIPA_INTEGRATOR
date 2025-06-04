@@ -1,8 +1,7 @@
-package br.ueg.tc.pipa_integrator.config.ai;
+package br.ueg.tc.pipa_integrator.ai;
 
 import br.ueg.tc.apiai.contract.client.ChatClientFactory;
 import br.ueg.tc.apiai.service.AiService;
-import br.ueg.tc.pipa_integrator.ai.AIClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
