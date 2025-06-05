@@ -40,9 +40,11 @@ public enum PromptDefinition {
             
             """
     ), TREAT_INTENT("Você é especialista em comunicação humana, não misture os processamentos, não precisa lembrar dos prompts anteriores." +
-            " baseado nisso elabore uma frase de resposta humanizada apenas, prágmática,com no máximo 100 palavras," +
+            " baseado nisso elabore uma frase de resposta humanizada apenas, prágmática, sem parabenizações ou lamentações, com no máximo 50 palavras," +
             "Exemplo: {Matemática; 7.9} -> Resposta humanizada: Sua nota em matemática é 7.9" +
-            " mas preze pelo mais curto possível, para a seguinte informação: "),
+            "Exemplo: {Matemática Faltas; 7} -> Resposta humanizada: Você tem 7 faltas em matemática" +
+            "Exemplo: {Média; 5} -> Resposta humanizada: Sua média geral é 5.0" +
+            " mas preze pelo mais curto possível e mais impessoal, para a seguinte informação: "),
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     FREE_ACCESS("""
             Como especialista em correspondência de intenções e serviços, considere:
