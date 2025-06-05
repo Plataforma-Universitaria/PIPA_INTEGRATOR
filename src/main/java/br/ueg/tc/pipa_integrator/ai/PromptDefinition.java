@@ -11,15 +11,16 @@ public enum PromptDefinition {
             
             1. A lista de serviços disponíveis.
             2. A solicitação/intenção do usuário.
+            3. As personas do usuário.
           
 
                 Objetivo:
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente em string simples, o serviço correspondente se for possível identificá-lo com clareza.
             - Atente-se que o prefixo da classe é correspondente ao tipo de persona que poe acessá-lo
-            - Caso o serviço não seja encontrado ou haja ambiguidade, retorne um JSON de erro apropriado.
+            - Caso o serviço não seja encontrado ou haja ambiguidade, retorne um erro apropriado.
             exemplo da sua resposta:
                     meu-servico
-                Formato do JSON de erro:
+                exemplo de erro:
                     Pode ser mais específico?
 
             ➡   Segue a lista de serviços, a persona e a intenção do usuário:
@@ -39,7 +40,8 @@ public enum PromptDefinition {
             
             """
     ), TREAT_INTENT("Você é especialista em comunicação humana, não misture os processamentos, não precisa lembrar dos prompts anteriores." +
-            " baseado nisso elabore uma frase de resposta humanizada apenas a resposta mesmo, com no máximo 100 palavras," +
+            " baseado nisso elabore uma frase de resposta humanizada apenas, prágmática,com no máximo 100 palavras," +
+            "Exemplo: {Matemática; 7.9} -> Resposta humanizada: Sua nota em matemática é 7.9" +
             " mas preze pelo mais curto possível, para a seguinte informação: "),
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     FREE_ACCESS("""
