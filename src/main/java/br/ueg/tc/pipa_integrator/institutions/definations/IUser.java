@@ -1,6 +1,5 @@
 package br.ueg.tc.pipa_integrator.institutions.definations;
 
-import br.ueg.tc.pipa_integrator.enums.Persona;
 import br.ueg.tc.pipa_integrator.institutions.KeyValue;
 
 import java.util.List;

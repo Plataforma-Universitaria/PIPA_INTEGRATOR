@@ -16,7 +16,8 @@ public enum PromptDefinition {
 
                 Objetivo:
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente em string simples, o serviço correspondente se for possível identificá-lo com clareza.
-            - Atente-se que o prefixo da classe é correspondente ao tipo de persona que poe acessá-lo
+            - Atente-se que o prefixo da classe, geralmente é correspondente ao tipo de persona que pode acessá-lo.
+            - Existem serviços que podem ser acessados por todos, com acesso livre.
             - Caso o serviço não seja encontrado ou haja ambiguidade, retorne um erro apropriado.
             exemplo da sua resposta:
                     meu-servico

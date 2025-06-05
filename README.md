@@ -28,13 +28,14 @@ possa ser disponibilizado na plataforma.
 3. O pacote src do projeto deve ser igual ao da plataforma;
 4. O provider deve possuir uma classe concreta que implemente a interface [IBaseInstitutionProvider.java](src/main/java/br/ueg/tc/pipa_integrator/institutions/IBaseInstitutionProvider.java)
 5. As classes de Serviço devem implementar a interface [IServiceProvider.java](src/main/java/br/ueg/tc/pipa_integrator/serviceprovider/service/IServiceProvider.java)
-6. Os métodos que executam serviços deve estar anotados com [ActivationPhrases.java](src/main/java/br/ueg/tc/pipa_integrator/annotations/ActivationPhrases.java)
-7. Os métodos da interface IServiceProvides e a utilização da anotação são essenciais para o processamento correto dos serviços.
-8. O provider deve seguir o padrão {Personas com acesso}Service ou {Tema do serviço}Service
-9. Ex: Para um service que fornece os serviços para alunos, nomes recomendados seriam:
-   * StudentService
-   * StudentDataService
-   * StudentScheduleService
+6. As classes de devem estar anotadas com [ServiceProviderClass.java](src/main/java/br/ueg/tc/pipa_integrator/annotations/ServiceProviderClass.java)
+7. Os métodos que executam serviços deve estar anotados com [ServiceProviderMethod.java](src/main/java/br/ueg/tc/pipa_integrator/annotations/ServiceProviderMethod.java)[ActivationPhrases.java](src/main/java/br/ueg/tc/pipa_integrator/annotations/ActivationPhrases.java)
+8. Os métodos da interface IServiceProvides e a utilização da anotação são essenciais para o processamento correto dos serviços.
+9. O provider deve seguir o padrão {Personas com acesso}Service ou {Tema do serviço}Service
+10. Ex: Para um service que fornece os serviços para alunos, nomes recomendados seriam:
+    * StudentService
+    * StudentDataService
+    * StudentScheduleService
 
 ## Ascpectos importantes
 1. O integrator, fornece aos provider a possibilidade de usarem o motor de ia, cuja chave deve ser fornecida no application.properties
