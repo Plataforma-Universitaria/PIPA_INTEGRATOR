@@ -7,6 +7,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface ActivationPhrases {
-    public String[] value();
+public @interface ServiceProviderMethod {
+    public boolean manipulatesData() default false;
+    public String[] activationPhrases() default {};
+
 }
