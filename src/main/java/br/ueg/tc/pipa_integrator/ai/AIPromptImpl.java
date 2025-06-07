@@ -2,7 +2,7 @@ package br.ueg.tc.pipa_integrator.ai;
 
 import org.springframework.stereotype.Service;
 
-import static br.ueg.tc.pipa_integrator.ai.PromptDefinition.GET_SERVICE;
+import static br.ueg.tc.pipa_integrator.enums.PromptDefinition.GET_SERVICE;
 
 
 @Service

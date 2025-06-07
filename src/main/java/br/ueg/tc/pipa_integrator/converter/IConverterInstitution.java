@@ -1,6 +1,6 @@
 package br.ueg.tc.pipa_integrator.converter;
 
-import br.ueg.tc.pipa_integrator.institutions.info.*;
+import br.ueg.tc.pipa_integrator.interfaces.providers.info.*;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
