@@ -1,6 +1,6 @@
 package br.ueg.tc.pipa_integrator.ai;
 
-import br.ueg.tc.apiai.contract.client.AbstractClient;
+import br.ueg.tc.apiai.client.AbstractClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
