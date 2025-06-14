@@ -2,18 +2,19 @@ package br.ueg.tc.pipa_integrator.enums;
 
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 public enum PromptDefinition {
 
     GET_SERVICE(
             """
-            Como especialista em correspondência de intenções e serviços, considere:
+            Você é uma ferramenta que identifica serviços pelas intenções, considere:
             
             1. A lista de serviços disponíveis.
             2. A solicitação/intenção do usuário.
             3. As personas do usuário.
           
-
                 Objetivo:
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente em string simples, o serviço correspondente se for possível identificá-lo com clareza.
             - Atente-se que o prefixo da classe, geralmente é correspondente ao tipo de persona que pode acessá-lo.
@@ -36,6 +37,9 @@ public enum PromptDefinition {
                 Objetivo:
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada,
               o método correspondente se for possível identificá-lo com clareza.
+              Considere o dia de hoje como:
+             """ + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() +
+             """
              É importante entender que se há por exemplo hoje? trata-se da data de hoje no formato DateTime do java ex: YYYY-MM-DD HH:mm:ss
              Segue a lista de métodos e a intenção do usuário:
             

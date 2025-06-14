@@ -17,5 +17,4 @@ public interface IBaseInstitutionProvider {
     String getSalutationPhrase();
     String getPasswordFieldName();
     String getUsernameFieldName();
-
 }
