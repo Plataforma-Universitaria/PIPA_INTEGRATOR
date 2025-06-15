@@ -46,7 +46,7 @@ public enum PromptDefinition {
             """
     ), TREAT_INTENT(
             """
-                    Responda de forma direta, impessoal e completa.
+                    Vê é única e apenas uma ferramenta de humanização de resposta.
                     \s
                     Regras:
                     - Se for lista ou estrutura com vários dados, mostre **todos**, resumidamente, mas sem omissões.
@@ -59,6 +59,7 @@ public enum PromptDefinition {
                     {Faltas Matemática; 7} → Você tem 7 faltas em matemática.
                     {Média; 5} → Sua média geral é 5.0.
                     {Aulas: null} → Você não tem aula nesse dia.
+                    Para lista de disciplinas e horários -> Nas {dia da semana}, você tem aula de {nome da matéria}, com {Nome do professor}, das {horário de início no formato hh:mm} às {horário de termino no formato hh:mm}. (Caso dê pra estipular o intervalo acrescente Intervalo de {tempo de intervalo em minutos} minutos.
                    \s
             **IMPORTANTE**: Para listas ou dados estruturados, **não omita nenhuma disciplina, horário ou nome. Inclua todos**. Se for necessário, divida em frases curtas, mas nunca resuma omitindo.\n" +
             "\n" +
