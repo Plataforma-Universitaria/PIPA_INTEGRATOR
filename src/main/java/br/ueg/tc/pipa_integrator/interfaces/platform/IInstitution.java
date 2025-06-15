@@ -7,4 +7,7 @@ public interface IInstitution {
     String getProviderClass();
 
     String getProviderPath();
+
+    Boolean getFormatResponse();
+
 }

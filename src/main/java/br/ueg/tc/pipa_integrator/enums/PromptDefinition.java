@@ -30,7 +30,7 @@ public enum PromptDefinition {
     ), GET_METHOD(
             """
             Como especialista em correspondência de intenções e metodos, considere:
-            
+           \s
             1. A lista de metodos disponíveis, exemplos de como ativar eles e seus parâmetros.
             2. A solicitação/intenção do usuário.
 
@@ -38,19 +38,31 @@ public enum PromptDefinition {
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada,
               o método correspondente se for possível identificá-lo com clareza.
               Considere o dia de hoje como:
-             """ + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() +
+            \s""" + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() +
              """
              É importante entender que se há por exemplo hoje? trata-se da data de hoje no formato DateTime do java ex: YYYY-MM-DD HH:mm:ss
              Segue a lista de métodos e a intenção do usuário:
             
             """
-    ), TREAT_INTENT("Você é especialista em comunicação humana, não misture os processamentos, não precisa lembrar dos prompts anteriores." +
-            " baseado nisso elabore uma frase de resposta humanizada apenas, prágmática, sem parabenizações ou lamentações, com no máximo 50 palavras, se for um texto com mais de 200 palavras, envie todo" +
-            "Exemplo: {Matemática; 7.9} -> Resposta humanizada: Sua nota em matemática é 7.9" +
-            "Exemplo: {Matemática Faltas; 7} -> Resposta humanizada: Você tem 7 faltas em matemática" +
-            "Exemplo: {Média; 5} -> Resposta humanizada: Sua média geral é 5.0" +
-            "Exemplo: {Aulas: null ou vazio} -> Você não tem aula nesse dia" +
-            " mas preze pelo mais curto possível e mais impessoal, para a seguinte informação: "),
+    ), TREAT_INTENT(
+            """
+                    Responda de forma direta, impessoal e completa.
+                    \s
+                    Regras:
+                    - Se for lista ou estrutura com vários dados, mostre **todos**, resumidamente, mas sem omissões.
+                    - Se for texto, apenas repita como veio.
+                    - Se for dado simples, seja direto em até 100 palavras.
+                    - Use o mínimo de tokens possível, sem omitir nenhuma informação
+                    \s
+                    Exemplos:
+                    {Matemática; 7.9} → Sua nota em matemática é 7.9.
+                    {Faltas Matemática; 7} → Você tem 7 faltas em matemática.
+                    {Média; 5} → Sua média geral é 5.0.
+                    {Aulas: null} → Você não tem aula nesse dia.
+                   \s
+            **IMPORTANTE**: Para listas ou dados estruturados, **não omita nenhuma disciplina, horário ou nome. Inclua todos**. Se for necessário, divida em frases curtas, mas nunca resuma omitindo.\n" +
+            "\n" +
+            "Agora, gere a resposta humanizada para:"""),
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     FREE_ACCESS("""
             Como especialista em correspondência de intenções e serviços, considere:
