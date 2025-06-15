@@ -6,6 +6,7 @@ import java.text.Normalizer;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -43,10 +44,16 @@ public enum WeekDay {
         return WeekDay.getByShortName(normalizeDayName(weekDay.substring(0, weekDay.length()-1)));
     }
 
-    //Usado para tirar acento das palavras, nesse caso SÁB = SAB
     public static String normalizeDayName(String dayNameToNormalize) {
         String nfdNormalizedString = Normalizer.normalize(dayNameToNormalize, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(nfdNormalizedString).replaceAll("");
+    }
+
+    public static List<WeekDay> getWeekDaysSort(){
+        return Arrays.asList(
+                WeekDay.MONDAY, WeekDay.TUESDAY, WeekDay.WEDNESDAY, WeekDay.THURSDAY,
+                WeekDay.FRIDAY, WeekDay.SATURDAY, WeekDay.SUNDAY
+        );
     }
 }
