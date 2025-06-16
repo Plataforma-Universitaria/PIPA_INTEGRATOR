@@ -38,7 +38,7 @@ public enum PromptDefinition {
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada,
               o método correspondente se for possível identificá-lo com clareza.
               Considere o dia de hoje como:
-            \s""" + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() +
+            \s""" + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() + " o ano atual é: " + LocalDateTime.now().getYear() +
              """
              É importante entender que se há por exemplo hoje? trata-se da data de hoje no formato DateTime do java ex: YYYY-MM-DD HH:mm:ss
              Segue a lista de métodos e a intenção do usuário:
