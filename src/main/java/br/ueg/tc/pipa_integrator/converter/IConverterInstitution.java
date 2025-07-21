@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface IConverterInstitution {
 
+
     IDisciplineSchedule getDisciplineFromJson(JsonElement jsonElement);
     List<IDisciplineSchedule> getDisciplinesWithScheduleFromJson(JsonArray jsonArray);
     List<IDisciplineGrade> getGradesWithDetailedGradeFromJson(JsonArray jsonArray);
@@ -15,4 +16,6 @@ public interface IConverterInstitution {
     IAcademicData getAcademicDataFromJson(JsonElement jsonElement);
     List<IDisciplineAbsence> getDisciplinesWithAbsencesFromJson(JsonArray jsonElements);
     IUserData getUserDataFromJson(JsonElement jsonElement);
+    List<IDiscipline> getDisciplinesFromJson(JsonArray jsonElements);
+
 }

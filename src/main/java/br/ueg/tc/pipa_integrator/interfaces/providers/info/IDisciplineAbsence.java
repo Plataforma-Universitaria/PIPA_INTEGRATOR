@@ -5,4 +5,5 @@ public interface IDisciplineAbsence extends IDiscipline{
     String getSemesterActive();
     Long getTotalAbsence();
     Long getTotalExcusedAbsences();
+    String getPercentPresence();
 }

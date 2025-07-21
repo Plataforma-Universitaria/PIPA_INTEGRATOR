@@ -7,4 +7,5 @@ public interface IDisciplineGrade extends IDiscipline{
     Float getFinalMedia();
     String getSemester();
     List<IDetailedDisciplineGrade> getDetailedGrades();
+
 }
