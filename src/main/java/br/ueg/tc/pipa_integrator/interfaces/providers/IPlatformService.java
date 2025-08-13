@@ -5,7 +5,7 @@ import br.ueg.tc.pipa_integrator.exceptions.files.ErrorFileNotFound;
 
 import java.nio.file.Path;
 
-public interface IPlataformService {
+public interface IPlatformService {
 
     /**
      * Responsavel por gerar um arquivo pdf a partir de um codigo html

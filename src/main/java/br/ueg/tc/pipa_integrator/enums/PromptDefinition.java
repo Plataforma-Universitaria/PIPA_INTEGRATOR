@@ -67,19 +67,15 @@ public enum PromptDefinition {
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     FREE_ACCESS("""
             Como especialista em correspondência de intenções e serviços, considere:
-            
-            1. A lista de serviços disponíveis com acesso livre.
-            2. A solicitação/intenção do usuário.
-
-                Objetivo:
+            Objetivo:
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente o json desserializado com sua resposta, em JSON, o serviço correspondente se for possível identificá-lo com clareza.
             - Caso o serviço não seja encontrado ou haja ambiguidade, retorne um JSON de erro apropriado.
             exemplo da sua resposta:
                     "{\\"serviceName\\": \\"meu-servico\\"}
                 Formato do JSON de erro:
                     "{\\"erro\\": \\"serviço não encontrado\\"}
-
-            ➡   Segue a lista de serviços, a persona e a intenção do usuário:
+            
+            ➡   Segue a lista de serviços, as persona e a intenção do usuário:
             """);
 
     private final String promptText;
