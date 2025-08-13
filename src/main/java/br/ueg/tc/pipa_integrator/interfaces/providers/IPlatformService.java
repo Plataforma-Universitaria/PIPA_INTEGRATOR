@@ -2,9 +2,11 @@ package br.ueg.tc.pipa_integrator.interfaces.providers;
 import br.ueg.tc.pipa_integrator.exceptions.files.ErrorCouldNotCreateFile;
 import br.ueg.tc.pipa_integrator.exceptions.files.ErrorCouldNotDeleteFile;
 import br.ueg.tc.pipa_integrator.exceptions.files.ErrorFileNotFound;
+import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 
+@Service
 public interface IPlatformService {
 
     /**
