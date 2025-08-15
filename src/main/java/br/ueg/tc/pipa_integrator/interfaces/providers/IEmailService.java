@@ -2,12 +2,11 @@ package br.ueg.tc.pipa_integrator.interfaces.providers;
 import br.ueg.tc.pipa_integrator.exceptions.files.ErrorCouldNotCreateFile;
 import br.ueg.tc.pipa_integrator.exceptions.files.ErrorCouldNotDeleteFile;
 import br.ueg.tc.pipa_integrator.exceptions.files.ErrorFileNotFound;
-import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 
 
-public interface IPlatformService {
+public interface IEmailService {
 
     /**
      * Responsavel por gerar um arquivo pdf a partir de um codigo html
