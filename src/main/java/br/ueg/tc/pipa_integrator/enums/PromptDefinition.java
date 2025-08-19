@@ -40,6 +40,7 @@ public enum PromptDefinition {
               Considere o dia de hoje como:
             \s""" + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() + " o ano atual é: " + LocalDateTime.now().getYear() +
              """
+             converta os parâmetros numéricos para números mesmo: primeiro -> 1; II -> 2 e etc
              É importante entender que se há por exemplo hoje? trata-se da data de hoje no formato DateTime do java ex: YYYY-MM-DD HH:mm:ss
              Segue a lista de métodos e a intenção do usuário:
             
