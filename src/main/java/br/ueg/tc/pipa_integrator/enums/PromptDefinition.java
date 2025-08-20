@@ -27,22 +27,17 @@ public enum PromptDefinition {
 
             ➡   Segue a lista de serviços, a persona e a intenção do usuário:
             """
-    ), GET_METHOD(
+    ), TREAT_PARAMETER(
             """
-            Como especialista em correspondência de intenções e metodos, considere:
-           \s
-            1. A lista de metodos disponíveis, exemplos de como ativar eles e seus parâmetros.
-            2. A solicitação/intenção do usuário.
-
-                Objetivo:
-            - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada,
-              o método correspondente se for possível identificá-lo com clareza.
+            Para o tratamento dos parâmetros:
               Considere o dia de hoje como:
-            \s""" + LocalDateTime.now() + " e o dia da semana como: " + LocalDateTime.now().getDayOfWeek().name() + " o ano atual é: " + LocalDateTime.now().getYear() +
+            \s""" + LocalDateTime.now() + " e o dia da semana como: "
+                    + LocalDateTime.now().getDayOfWeek().name() +
+                    " o ano atual é: "
+                    + LocalDateTime.now().getYear() +
              """
              converta os parâmetros numéricos para números mesmo: primeiro -> 1; II -> 2 e etc
-             É importante entender que se há por exemplo hoje? trata-se da data de hoje no formato DateTime do java ex: YYYY-MM-DD HH:mm:ss
-             Segue a lista de métodos e a intenção do usuário:
+             É importante entender que se há por exemplo hoje? trata-se da data da semana -> SEG, TER, QUA, QUI, SEX, SAB, DOM
             
             """
     ), TREAT_INTENT(
