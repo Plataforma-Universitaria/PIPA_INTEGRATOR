@@ -36,8 +36,8 @@ public enum PromptDefinition {
                     " o ano atual é: "
                     + LocalDateTime.now().getYear() +
              """
-             converta os parâmetros numéricos para números mesmo: primeiro -> 1; II -> 2 e etc
-             É importante entender que se há por exemplo hoje? trata-se da data da semana -> SEG, TER, QUA, QUI, SEX, SAB, DOM
+             converta os parâmetros numéricos para números mesmo: primeiro -> 1; II -> 2 ; 1° -> 1 e etc
+             É importante entender que se há por exemplo hoje? trata-se da data da semana, retorno o respectivo -> SEG, TER, QUA, QUI, SEX, SAB, DOM
             
             """
     ), TREAT_INTENT(
