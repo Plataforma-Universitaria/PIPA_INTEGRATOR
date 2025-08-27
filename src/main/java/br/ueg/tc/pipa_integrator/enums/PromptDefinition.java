@@ -9,12 +9,6 @@ public enum PromptDefinition {
 
     GET_SERVICE(
             """
-            Você é uma ferramenta que identifica serviços pelas intenções, considere:
-            
-            1. A lista de serviços disponíveis.
-            2. A solicitação/intenção do usuário.
-            3. As personas do usuário.
-          
                 Objetivo:
             - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente em string simples, o serviço correspondente se for possível identificá-lo com clareza.
             - Atente-se que o prefixo da classe, geralmente é correspondente ao tipo de persona que pode acessá-lo.
@@ -30,6 +24,7 @@ public enum PromptDefinition {
     ), TREAT_PARAMETER(
             """
             Para o tratamento dos parâmetros:
+            Eles podem ser string compostas por várias palavras, números, datas, dias da sema e etc.
               Considere o dia de hoje como:
             \s""" + LocalDateTime.now() + " e o dia da semana como: "
                     + LocalDateTime.now().getDayOfWeek().name() +
