@@ -11,7 +11,7 @@ import java.util.List;
 public interface IBaseInstitutionProvider {
 
     List<KeyValue> authenticateUser(String username, String password, List<String> personas) throws UserNotAuthenticatedException, InstitutionCommunicationException;
-    List<KeyValue> refreshUserAccessData(List<KeyValue> accessData);
+    List<KeyValue> refreshUserAccessData(List<KeyValue> accessData, List<String> personas);
     IUserData getUserData() throws IntentNotSupportedException, InstitutionCommunicationException;
     List<String> getPersonas();
     String getInstitutionName();
