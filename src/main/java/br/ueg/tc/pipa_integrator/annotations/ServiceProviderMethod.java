@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface ServiceProviderMethod {
     public boolean manipulatesData() default false;
-    public String[] activationPhrases() default {};
+    public String[] activationPhrases();
+    public String actionName();
 
 }
