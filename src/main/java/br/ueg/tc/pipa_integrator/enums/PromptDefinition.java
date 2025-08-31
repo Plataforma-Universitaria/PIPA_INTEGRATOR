@@ -3,6 +3,8 @@ package br.ueg.tc.pipa_integrator.enums;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 @Getter
 public enum PromptDefinition {
@@ -12,10 +14,10 @@ public enum PromptDefinition {
             Para o tratamento dos parâmetros:
             Eles podem ser string compostas por várias palavras, números, datas, dias da sema e etc.
               Considere o dia de hoje como:
-            \s""" + LocalDateTime.now() + " e o dia da semana como: "
-                    + LocalDateTime.now().getDayOfWeek().name() +
+            \s""" + getToday().toLocalDateTime().toString() + " e o dia da semana como: "
+                    + getToday().getDayOfWeek().name() +
                     " o ano atual é: "
-                    + LocalDateTime.now().getYear() +
+                    + getToday().getYear()+
              """
              converta os parâmetros numéricos para números mesmo: primeiro -> 1; II -> 2 ; 1° -> 1 e etc
              É importante entender que se há por exemplo hoje? trata-se da data da semana, retorno o respectivo -> SEG, TER, QUA, QUI, SEX, SAB, DOM
@@ -49,11 +51,11 @@ public enum PromptDefinition {
     - Para saudações como "Oi", "Olá", "E aí", responda com uma saudação amigável do mesmo tipo. 
       Exemplos: "Olá! Como posso ajudar?", "E aí! Como posso te ajudar?".
     - Para saudações de tempo (ex.: "Bom dia", "Boa tarde", "Boa noite"), utilize a hora atual do sistema:
-        Agora é: """ + LocalDateTime.now() + """
+        Agora é: """ + getToday().toLocalDateTime().toString() + """
         - Se a hora for entre 04:00 e 11:59 → Responder algo como "Bom dia! O que deseja saber"
         - Se a hora for entre 12:00 e 17:59 → Responder algo como "Boa tarde! O que deseja saber"
         - Se a hora for entre 18:00 e 03:59 → Responder algo como "Boa noite! O que deseja saber"
-    - Se não for uma saudação, ou se a saudação acompanhar algumas intenção de fato (ex: Olá, quais são minhas aulas hoje)
+    - Se não for uma saudação, ou se a saudação acompanhar algumas intenção de fato (ex: Olá, quais são minhas aulas hoje, boa nopite, notas em alg etc)
       apenas retorne "N/A".
 """);
 
@@ -61,6 +63,13 @@ public enum PromptDefinition {
 
     PromptDefinition(String promptText) {
         this.promptText = promptText;
+    }
+
+    private static ZonedDateTime getToday(){
+        ZoneId brasiliaZoneId = ZoneId.of("America/Sao_Paulo");
+        ZonedDateTime nowInBrasilia = ZonedDateTime.now(brasiliaZoneId);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        return localDateTime.atZone(brasiliaZoneId);
     }
 
 }
