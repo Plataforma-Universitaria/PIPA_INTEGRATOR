@@ -45,18 +45,47 @@ public enum PromptDefinition {
             "Agora, gere a resposta humanizada para:"""),
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     VERIFY_INTENT("""
-    Se a intenção recebida for uma SAUDAÇÃO, responda também com uma saudação apropriada.
-
-    Regras:
-    - Para saudações como "Oi", "Olá", "E aí", responda com uma saudação amigável do mesmo tipo. 
-      Exemplos: "Olá! Como posso ajudar?", "E aí! Como posso te ajudar?".
-    - Para saudações de tempo (ex.: "Bom dia", "Boa tarde", "Boa noite"), utilize a hora atual do sistema:
-        Agora é: """ + getToday().toLocalDateTime().toString() + """
-        - Se a hora for entre 04:00 e 11:59 → Responder algo como "Bom dia! O que deseja saber"
-        - Se a hora for entre 12:00 e 17:59 → Responder algo como "Boa tarde! O que deseja saber"
-        - Se a hora for entre 18:00 e 03:59 → Responder algo como "Boa noite! O que deseja saber"
-    - Se não for uma saudação, ou se a saudação acompanhar algumas intenção de fato (ex: Olá, quais são minhas aulas hoje, boa nopite, notas em alg etc)
-      apenas retorne "N/A".
+    IMPORTANTE: Esta função deve identificar APENAS saudações isoladas ou que iniciam a conversa.\s
+            
+                Regras de Identificação:
+            
+                1. **SAUDAÇÕES SIMPLES** (retornar saudação correspondente):
+                   - Palavras isoladas: "Oi", "Olá", "E aí", "Hey", "Alô"
+                   - Exemplo de entrada: "Oi" → Resposta: "Olá! Como posso ajudar?"
+            
+                2. **SAUDAÇÕES DE TEMPO** (verificar horário atual):
+                   - Frases isoladas: "Bom dia", "Boa tarde", "Boa noite"
+                   - Usar horário atual: ""\" + getToday().toLocalDateTime().toString() + ""\"
+                  \s
+                   Regras de horário:
+                   - 04:00 às 11:59 → "Bom dia! Como posso te ajudar?"
+                   - 12:00 às 17:59 → "Boa tarde! Como posso te ajudar?" \s
+                   - 18:00 às 03:59 → "Boa noite! Como posso te ajudar?"
+            
+                3. **RETORNAR "N/A" quando**:
+                   - A entrada contém qualquer conteúdo além da saudação
+                   - A entrada é uma pergunta ou solicitação específica
+                   - A entrada menciona tópicos como: notas, aulas, trabalhos, materiais, etc.
+                   - A saudação é seguida de vírgula e outro conteúdo
+                  \s
+                **Exemplos de entradas que devem retornar "N/A":**
+                - "Notas do 9 período"\s
+                - "Boa noite, quais são minhas notas?"
+                - "Olá, quais são minhas aulas hoje?"
+                - "Bom dia, preciso ver meu horário"
+                - "E aí, como está o tempo?"
+                - "Oi professor"
+                - "Olá Maria"
+            
+                **Exemplos de entradas que devem retornar saudação:**
+                - "Oi"
+                - "Olá" \s
+                - "Bom dia"
+                - "Boa tarde"
+                - "Boa noite"
+                - "E aí"
+            
+                ATENÇÃO: Seja rigoroso. Se há QUALQUER conteúdo além da saudação pura, retorne "N/A".
 """);
 
     private final String promptText;
