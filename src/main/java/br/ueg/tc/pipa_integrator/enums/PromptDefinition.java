@@ -7,21 +7,7 @@ import java.time.LocalDateTime;
 @Getter
 public enum PromptDefinition {
 
-    GET_SERVICE(
-            """
-                Objetivo:
-            - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente em string simples, o serviço correspondente se for possível identificá-lo com clareza.
-            - Atente-se que o prefixo da classe, geralmente é correspondente ao tipo de persona que pode acessá-lo.
-            - Existem serviços que podem ser acessados por todos, com acesso livre.
-            - Caso o serviço não seja encontrado ou haja ambiguidade, retorne um erro apropriado.
-            exemplo da sua resposta:
-                    meu-servico
-                exemplo de erro:
-                    Pode ser mais específico?
-
-            ➡   Segue a lista de serviços, a persona e a intenção do usuário:
-            """
-    ), TREAT_PARAMETER(
+    TREAT_PARAMETER(
             """
             Para o tratamento dos parâmetros:
             Eles podem ser string compostas por várias palavras, números, datas, dias da sema e etc.
@@ -56,18 +42,20 @@ public enum PromptDefinition {
             "\n" +
             "Agora, gere a resposta humanizada para:"""),
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
-    FREE_ACCESS("""
-            Como especialista em correspondência de intenções e serviços, considere:
-            Objetivo:
-            - Retornar EXCLUSIVAMENTE, ou seja, não precisa justificar nada, envie unicamente o json desserializado com sua resposta, em JSON, o serviço correspondente se for possível identificá-lo com clareza.
-            - Caso o serviço não seja encontrado ou haja ambiguidade, retorne um JSON de erro apropriado.
-            exemplo da sua resposta:
-                    "{\\"serviceName\\": \\"meu-servico\\"}
-                Formato do JSON de erro:
-                    "{\\"erro\\": \\"serviço não encontrado\\"}
-            
-            ➡   Segue a lista de serviços, as persona e a intenção do usuário:
-            """);
+    VERIFY_INTENT("""
+    Se a intenção recebida for uma SAUDAÇÃO, responda também com uma saudação apropriada.
+
+    Regras:
+    - Para saudações como "Oi", "Olá", "E aí", responda com uma saudação amigável do mesmo tipo. 
+      Exemplos: "Olá! Como posso ajudar?", "E aí! Como posso te ajudar?".
+    - Para saudações de tempo (ex.: "Bom dia", "Boa tarde", "Boa noite"), utilize a hora atual do sistema:
+        Agora é: """ + LocalDateTime.now() + """
+        - Se a hora for entre 04:00 e 11:59 → Responder algo como "Bom dia! O que deseja saber"
+        - Se a hora for entre 12:00 e 17:59 → Responder algo como "Boa tarde! O que deseja saber"
+        - Se a hora for entre 18:00 e 03:59 → Responder algo como "Boa noite! O que deseja saber"
+    - Se não for uma saudação, ou se a saudação acompanhar algumas intenção de fato (ex: Olá, quais são minhas aulas hoje)
+      apenas retorne "N/A".
+""");
 
     private final String promptText;
 
