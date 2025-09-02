@@ -86,7 +86,7 @@ public enum PromptDefinition {
                 - "Boa noite"
             
                 - Seja rigoroso. Na menor dúvida, retorne "N/A".
-                NUNCA RETORNE NADA ALÈM DA SAUDAÇÃO OU DO N/A!
+                NUNCA RETORNE NADA ALÈM DA SAUDAÇÃO OU DO N/A para essa tarefa!
 """);
 
     private final String promptText;
