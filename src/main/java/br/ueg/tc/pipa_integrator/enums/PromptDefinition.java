@@ -74,10 +74,9 @@ public enum PromptDefinition {
                 - "Olá, quais são minhas aulas hoje?"
                 - "Bom dia, preciso ver meu horário"
                 - "E aí, como está o tempo?"
-                - "Oi professor"
-                - "Olá Maria"
                 - "Ajuda"
                 - "Funcionalidades"
+                - "notas"
             
                 **Exemplos de entradas que devem retornar saudação:**
                 - "Oi"
@@ -88,6 +87,7 @@ public enum PromptDefinition {
                 - "E aí"
             
                 ATENÇÃO: Seja rigoroso. QUALQUER conteúdo além da saudação pura, retorne "N/A" .
+                Nunca retorne nada além de ou a saudação, ou o N/A.
 """);
 
     private final String promptText;
