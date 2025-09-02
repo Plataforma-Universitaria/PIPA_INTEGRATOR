@@ -46,16 +46,16 @@ public enum PromptDefinition {
     TREAT_ERROR("Você é especialista em comunicação humana, diga apenas que ocorreu um erro com no máximo 5 palavras"),
     VERIFY_INTENT("""
     IMPORTANTE: Esta função deve identificar APENAS saudações isoladas ou que iniciam a conversa.\s
-            
                 Regras de Identificação:
-            
+                
                 1. **SAUDAÇÕES SIMPLES** (retornar saudação correspondente):
                    - Palavras isoladas: "Oi", "Olá", "E aí", "Hey", "Alô"
                    - Exemplo de entrada: "Oi" → Resposta: "Olá! Como posso ajudar?"
             
                 2. **SAUDAÇÕES DE TEMPO** (verificar horário atual):
                    - Frases isoladas: "Bom dia", "Boa tarde", "Boa noite"
-                   - Usar horário atual: ""\" + getToday().toLocalDateTime().toString() + ""\"
+                   - Usar horário atual:"""  + getToday().toLocalDateTime().toString() + """
+            
                   \s
                    Regras de horário:
                    - 04:00 às 11:59 → "Bom dia! Como posso te ajudar?"
@@ -68,7 +68,7 @@ public enum PromptDefinition {
                    - A entrada menciona tópicos como: notas, aulas, trabalhos, materiais, etc.
                    - A saudação é seguida de vírgula e outro conteúdo
                   \s
-                **Exemplos de entradas que devem retornar "N/A":**
+                **Exemplos de entradas que DEVEM retornar "N/A":**
                 - "Notas do 9 período"\s
                 - "Boa noite, quais são minhas notas?"
                 - "Olá, quais são minhas aulas hoje?"
@@ -84,10 +84,8 @@ public enum PromptDefinition {
                 - "Bom dia"
                 - "Boa tarde"
                 - "Boa noite"
-                - "E aí"
             
-                ATENÇÃO: Seja rigoroso. QUALQUER conteúdo além da saudação pura, retorne "N/A" .
-                Nunca retorne nada além de ou a saudação, ou o N/A.
+                - Seja rigoroso. Na menor dúvida, retorne "N/A".
 """);
 
     private final String promptText;
