@@ -97,9 +97,7 @@ public enum PromptDefinition {
 
     private static ZonedDateTime getToday(){
         ZoneId brasiliaZoneId = ZoneId.of("America/Sao_Paulo");
-        ZonedDateTime nowInBrasilia = ZonedDateTime.now(brasiliaZoneId);
-        LocalDateTime localDateTime = LocalDateTime.now();
-        return localDateTime.atZone(brasiliaZoneId);
+        return ZonedDateTime.now(brasiliaZoneId);
     }
 
 }
