@@ -49,8 +49,9 @@ public enum PromptDefinition {
                 Regras de Identificação:
                 
                 1. **SAUDAÇÕES SIMPLES** (retornar saudação correspondente):
-                   - Palavras isoladas: "Oi", "Olá", "E aí", "Hey", "Alô"
+                   - Palavras isoladas: "Oi", "Olá", "E aí", "Hey", "Alô",
                    - Exemplo de entrada: "Oi" → Resposta: "Olá! Como posso ajudar?"
+                   
             
                 2. **SAUDAÇÕES DE TEMPO** (verificar horário atual):
                    - Frases isoladas: "Bom dia", "Boa tarde", "Boa noite"
@@ -68,6 +69,9 @@ public enum PromptDefinition {
                    - A entrada menciona tópicos como: notas, aulas, trabalhos, materiais, etc.
                    - A saudação é seguida de vírgula e outro conteúdo
                   \s
+                 4. **FRASES DE CONFIRMAÇÃO** (retornar um como posso ajudar):
+                   - Palavras isoladas: "Pronto", "Ok", "deu certo", "Foi", "Autenticado",
+                   - Exemplo de entrada: Resposta: "Como posso ajudar?", "O que seja saber"
                 **Exemplos de entradas que DEVEM retornar "N/A":**
                 - "Notas do 9 período"\s
                 - "Boa noite, quais são minhas notas?"
@@ -86,7 +90,7 @@ public enum PromptDefinition {
                 - "Boa noite"
             
                 - Seja rigoroso. Na menor dúvida, retorne "N/A".
-                NUNCA RETORNE NADA ALÈM DA SAUDAÇÃO OU DO N/A para essa tarefa!
+                NUNCA RETORNE NADA, NADA MESMO, ALÈM DA SAUDAÇÃO OU DO N/A para essa tarefa!
 """);
 
     private final String promptText;
