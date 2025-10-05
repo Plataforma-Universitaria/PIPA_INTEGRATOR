@@ -17,13 +17,20 @@ public enum PromptDefinition {
                         • A data de hoje é:\s""" + getToday().toLocalDateTime().toString() + """
                     • O dia da semana é:\s""" + getToday().getDayOfWeek().name() + """
                     • O ano atual é:\s""" + getToday().getYear() + """
-                    
+                   \s
+                    **MAREAMENTO E SEQUÊNCIA DE PARÂMETROS:**
+                    - Os parâmetros a serem extraídos da frase do usuário (por exemplo, (student), (hours), (description), (followupDate)
+                      devem ser extraídos independentemente da ordem em que aparecem na frase.
+                    - O nome do parâmetro dentro dos parênteses na frase de ativação DEVE ser o mesmo nome
+                      do argumento correspondente no método Java. Por exemplo, (student) é mapeado para String student.
+                   \s
                     Regras:
                     1. Se o parâmetro for "hoje", substitua pelo dia da semana correspondente (ex: SEG, TER, QUA, QUI, SEX, SAB, DOM).
                     2. Se o parâmetro for "amanhã", substitua pelo próximo dia da semana.
                     3. Se o parâmetro for "ontem", substitua pelo dia da semana anterior.
                     4. Converta números escritos em palavras ou algarismos romanos para o formato numérico (ex: "primeiro" -> 1, "II" -> 2, "1°" -> 1).
-                    """
+                    5. Para Datas literais devem ser no formato dd/mm/aaaa (ex: 25/03 -> 25/03/2025), se não houver ano, deve ser o ano atual, se não houver mês, o mês atual, se não houver dia, o dia atual \s
+                   \s"""
     ), TREAT_INTENT(
             """
                             Vê é única e apenas uma ferramenta de humanização de resposta.
