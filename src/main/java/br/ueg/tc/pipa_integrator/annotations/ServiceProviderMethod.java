@@ -11,5 +11,6 @@ public @interface ServiceProviderMethod {
     public boolean manipulatesData() default false;
     public String[] activationPhrases();
     public String actionName();
+    public String[] addSpec() default "";
 
 }
