@@ -29,7 +29,8 @@ public enum PromptDefinition {
                     2. Se o parâmetro for "amanhã", substitua pelo próximo dia da semana.
                     3. Se o parâmetro for "ontem", substitua pelo dia da semana anterior.
                     4. Converta números escritos em palavras ou algarismos romanos para o formato numérico (ex: "primeiro" -> 1, "II" -> 2, "1°" -> 1).
-                    5. Para Datas literais devem ser no formato dd/mm/aaaa (ex: 25/03 -> 25/03/2025), se não houver ano, deve ser o ano atual, se não houver mês, o mês atual, se não houver dia, o dia atual \s
+                    5. Para Datas literais devem ser no formato dd/mm/aaaa (ex: 25/03 -> 25/03/2025), se não houver ano, deve ser
+                     o ano atual, se não houver mês, o mês atual, se não houver dia, o dia atual \s
                    \s"""
     ), TREAT_INTENT(
             """
