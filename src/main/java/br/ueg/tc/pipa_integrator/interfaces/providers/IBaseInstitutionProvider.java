@@ -1,5 +1,6 @@
 package br.ueg.tc.pipa_integrator.interfaces.providers;
 
+import br.ueg.tc.pipa_integrator.enums.Persona;
 import br.ueg.tc.pipa_integrator.exceptions.institution.InstitutionCommunicationException;
 import br.ueg.tc.pipa_integrator.exceptions.intent.IntentNotSupportedException;
 import br.ueg.tc.pipa_integrator.exceptions.user.UserNotAuthenticatedException;
@@ -12,6 +13,9 @@ public interface IBaseInstitutionProvider {
 
     List<KeyValue> authenticateUser(String username, String password, List<String> personas) throws UserNotAuthenticatedException, InstitutionCommunicationException;
     List<KeyValue> refreshUserAccessData(List<KeyValue> accessData, List<String> personas);
+
+    List<String> canAccessDiary();
+
     IUserData getUserData() throws IntentNotSupportedException, InstitutionCommunicationException;
     List<String> getPersonas();
     String getInstitutionName();
