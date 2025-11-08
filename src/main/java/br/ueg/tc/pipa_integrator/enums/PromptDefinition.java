@@ -75,7 +75,7 @@ public enum PromptDefinition {
                             3. **RETORNAR "N/A" quando**:
                                - A entrada contém qualquer conteúdo além da saudação
                                - A entrada é uma pergunta ou solicitação específica
-                               - A entrada menciona tópicos como: notas, aulas, trabalhos, materiais, etc.
+                               - A entrada menciona tópicos como: notas, aulas, trabalhos, materiais, anotações, tarefas etc.
                                - A saudação é seguida de vírgula e outro conteúdo
                               \s
                              4. **FRASES DE CONFIRMAÇÃO** (retornar um como posso ajudar):
