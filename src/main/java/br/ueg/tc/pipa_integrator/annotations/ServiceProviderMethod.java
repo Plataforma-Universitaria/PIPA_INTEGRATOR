@@ -12,5 +12,5 @@ public @interface ServiceProviderMethod {
     public String[] activationPhrases();
     public String actionName();
     public String[] addSpec() default "";
-
+    public String version() default "1.0";
 }
